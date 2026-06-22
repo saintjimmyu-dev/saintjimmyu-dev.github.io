@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura — NovaKnowledge | Jimmy Uruchima</title>
+    <meta name="description" content="Caso de estudio: arquitectura del sistema agéntico de turismo NovaKnowledge — RAG híbrido, orquestación multi-agente, model routing y failover en producción.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Animated background grid -->
+<div class="bg-grid"></div>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">&lt;JU/&gt;</a>
+        <div class="nav-links">
+            <a href="index.html#projects">Proyectos</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#contact">Contacto</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================= -->
+<!-- HERO / INTRO                                                  -->
+<!-- ============================================================= -->
+<header class="hero" id="hero">
+    <div class="hero-content">
+        <p class="hero-tag"><a href="index.html#projects" class="link-arrow">&larr; Volver a proyectos</a></p>
+        <h1 class="hero-title">
+            <span class="gradient-text">NovaKnowledge</span><br>
+            Arquitectura del Sistema
+        </h1>
+        <p class="hero-subtitle">
+            Cómo está construido un <strong>sistema de IA agéntica en producción</strong> que
+            responde consultas turísticas sobre Ecuador con datos oficiales verificables,
+            priorizando <strong>precisión factual</strong> y <strong>costo controlado a escala</strong>.
+        </p>
+        <div class="hero-actions">
+            <a href="https://huggingface.co/spaces/saintjimmyu-dev/NovaKnowledge" target="_blank" rel="noopener" class="btn btn-primary">Probar Demo en Vivo &rarr;</a>
+            <a href="#arquitectura" class="btn btn-outline">Ver Arquitectura &darr;</a>
+        </div>
+        <div class="hero-stats">
+            <!-- [EDITAR] Ajusta estas métricas a las cifras que quieras mostrar públicamente -->
+            <div class="stat">
+                <span class="stat-number">2.300+</span>
+                <span class="stat-label">Tests automatizados</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">~0</span>
+                <span class="stat-label">Tasa de fabricación</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">Multi</span>
+                <span class="stat-label">Proveedor + Failover</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================= -->
+<!-- 1. EL PROBLEMA                                                -->
+<!-- ============================================================= -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">El problema</h2>
+        <p class="section-desc">
+            <!-- [EDITAR] 2-3 frases con el dolor real que resuelve, en lenguaje de negocio. -->
+            La información turística oficial de Ecuador está dispersa en PDFs y planillas
+            de múltiples entidades de gobierno. Un turista necesita respuestas precisas
+            (requisitos de ingreso, tasas, destinos, embajadas) sin riesgo de datos inventados.
+            Un chatbot genérico alucina; el reto es <strong>precisión factual verificable</strong> a costo viable.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- 2. DIAGRAMA DE ARQUITECTURA                                   -->
+<!-- ============================================================= -->
+<section class="section section-dark" id="arquitectura">
+    <div class="container">
+        <h2 class="section-title">Arquitectura de alto nivel</h2>
+        <p class="section-desc">Flujo de una consulta, de extremo a extremo.</p>
+
+        <!-- [EDITAR] Reemplaza este placeholder por el diagrama real.
+             Opción A: <img src="assets/diagrama-novaknowledge.svg" alt="Diagrama de arquitectura">
+             Opción B: deja este diagrama ASCII en terminal-window (ya es presentable). -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">flujo de una consulta</span>
+            </div>
+            <div class="terminal-body">
+                <p><span class="t-blue">Usuario</span> <span class="t-dim">&rarr;</span> FastAPI (POST /api/chat, SSE)</p>
+                <p><span class="t-dim">&darr;</span></p>
+                <p><span class="t-green">Pre-router</span> <span class="t-dim">atajos deterministas (sin LLM) para respuestas oficiales fijas</span></p>
+                <p><span class="t-dim">&darr;</span></p>
+                <p><span class="t-green">Orquestador agéntico (LangGraph)</span> <span class="t-dim">model routing + tool-calling</span></p>
+                <p><span class="t-dim">&darr;</span></p>
+                <p><span class="t-yellow">RAG híbrido</span> <span class="t-dim">FAISS (denso) + BM25 (léxico) sobre corpus oficial</span></p>
+                <p><span class="t-dim">&darr;</span></p>
+                <p><span class="t-yellow">Verifier anti-fabricación</span> <span class="t-dim">fail-closed: si no hay evidencia, no inventa</span></p>
+                <p><span class="t-dim">&darr;</span></p>
+                <p><span class="t-green">&check;</span> <span class="t-dim">Respuesta citada + tarjetas estructuradas</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- 3. DECISIONES DE INGENIERÍA                                   -->
+<!-- ============================================================= -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Decisiones de ingeniería</h2>
+        <p class="section-desc">Las que más impactaron precisión, robustez y costo.</p>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">&#128269;</div>
+                </div>
+                <h3>RAG híbrido (denso + léxico)</h3>
+                <p>
+                    <!-- [EDITAR] Por qué híbrido y no solo vectorial. -->
+                    FAISS captura similitud semántica; BM25 rescata coincidencias exactas
+                    (nombres propios, lugares). La combinación sube el <em>recall</em> en queries
+                    donde el embedding solo no alcanza, con <em>query-aligned phrasing</em> para
+                    elevar el ranking de la fuente correcta.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">&#9879;</div>
+                </div>
+                <h3>Model routing + failover multi-proveedor</h3>
+                <p>
+                    <!-- [EDITAR] Cómo se decide el modelo y qué pasa ante un 429/413. -->
+                    Un router selecciona el modelo según la complejidad de la consulta y hace
+                    <em>failover</em> automático entre proveedores LLM ante rate-limits o
+                    payloads grandes, sin tumbar la sesión del usuario.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">&#127919;</div>
+                </div>
+                <h3>Atajos deterministas (pre-router)</h3>
+                <p>
+                    <!-- [EDITAR] Por qué ciertas respuestas no pasan por el LLM. -->
+                    Para datos oficiales fijos (ej. requisitos de visa), un atajo determinista
+                    responde con un <em>briefing</em> curado <strong>sin invocar el LLM</strong>:
+                    cero fabricación, latencia sub-segundo y cero gasto de cuota.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">&#128737;</div>
+                </div>
+                <h3>Verifier anti-fabricación (fail-closed)</h3>
+                <p>
+                    <!-- [EDITAR] Cómo se evita que el sistema invente. -->
+                    Una capa de verificación valida la síntesis contra la evidencia recuperada.
+                    Si no hay soporte factual, el sistema <strong>se cierra en falso</strong>
+                    (no inventa) en lugar de arriesgar una respuesta plausible pero falsa.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">&#128202;</div>
+                </div>
+                <h3>Eval gates + suite de regresión</h3>
+                <p>
+                    <!-- [EDITAR] Cómo garantizas calidad PR a PR. -->
+                    Más de 2.300 tests ejercen la cadena HTTP real y <em>eval gates</em> automáticos
+                    en CI bloquean regresiones de calidad de retrieval antes del merge.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">&#127757;</div>
+                </div>
+                <h3>Corpus oficial verificable</h3>
+                <p>
+                    <!-- [EDITAR] De dónde salen los datos y por qué son confiables. -->
+                    Datos extraídos de fuentes oficiales (<code>.gob.ec</code>, ecuador.travel)
+                    con verificación adversarial por claim. La respuesta remite siempre al portal
+                    oficial para montos vigentes.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- 4. STACK                                                      -->
+<!-- ============================================================= -->
+<section class="section section-dark" id="stack">
+    <div class="container">
+        <h2 class="section-title">Stack técnico</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h4>Orquestación &amp; LLM</h4>
+                <div class="skill-tags">
+                    <span>LangGraph</span>
+                    <span>Llama 3.3 70B</span>
+                    <span>Scout 17B</span>
+                    <span>Groq</span>
+                    <span>Tool-calling</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>RAG &amp; Retrieval</h4>
+                <div class="skill-tags">
+                    <span>FAISS</span>
+                    <span>BM25</span>
+                    <span>sentence-transformers</span>
+                    <span>Hybrid retrieval</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Backend &amp; Deploy</h4>
+                <div class="skill-tags">
+                    <span>FastAPI</span>
+                    <span>uvicorn</span>
+                    <span>SSE</span>
+                    <span>Docker</span>
+                    <span>HF Spaces</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Integraciones (MCP)</h4>
+                <div class="skill-tags">
+                    <span>Wikipedia</span>
+                    <span>OpenWeatherMap</span>
+                    <span>Tavily</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- 5. RESULTADOS / IMPACTO                                       -->
+<!-- ============================================================= -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Resultados</h2>
+        <p class="section-desc">
+            <!-- [EDITAR] Cifras de impacto que quieras mostrar (uso, latencia, % accept del verifier, etc.). -->
+            [EDITAR] Resume aquí el impacto medible: precisión del retrieval, reducción de
+            fabricación, latencia de las rutas deterministas, cobertura de tests, etc.
+        </p>
+        <div class="hero-actions">
+            <a href="https://huggingface.co/spaces/saintjimmyu-dev/NovaKnowledge" target="_blank" rel="noopener" class="btn btn-primary">Probar Demo en Vivo &rarr;</a>
+            <a href="index.html#contact" class="btn btn-outline">Hablemos del proyecto</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>Hecho con <span class="gradient-text">pasión por la IA</span> &mdash; &copy; 2026 Jimmy Uruchima</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
