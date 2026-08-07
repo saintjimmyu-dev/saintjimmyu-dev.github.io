@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260807-2">
+    <link rel="stylesheet" href="style.css?v=20260807-3">
 </head>
 <body class="home-page">
     <div class="home-ambient" aria-hidden="true"></div>
@@ -17,7 +17,7 @@
         <div class="home-nav-inner">
             <a href="index.html" class="home-brand" aria-label="Inicio — Jimmy Uruchima">Jimmy Uruchima</a>
             <div class="home-nav-links">
-                <a href="proyectos.html">Proyectos</a>
+                <a href="#projects">Proyectos</a>
                 <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener">Sobre mí</a>
                 <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener">Contacto</a>
                 <a href="https://github.com/saintjimmyu-dev" target="_blank" rel="noopener">GitHub</a>
@@ -25,8 +25,9 @@
         </div>
     </nav>
 
-    <main class="home-hero">
-        <section class="home-hero-copy" aria-labelledby="home-title">
+    <main>
+    <section class="home-hero">
+        <div class="home-hero-copy" aria-labelledby="home-title">
             <p class="home-eyebrow">AI ENGINEER · AGENTIC SYSTEMS · RAG</p>
             <h1 id="home-title">Construyo sistemas de IA confiables sobre datos reales.</h1>
             <p class="home-lead">
@@ -34,11 +35,11 @@
                 trazabilidad y costos controlados.
             </p>
             <div class="home-actions">
-                <a href="proyectos.html" class="btn btn-primary">Ver proyectos <span aria-hidden="true">→</span></a>
+                <a href="#projects" class="btn btn-primary">Ver proyectos <span aria-hidden="true">→</span></a>
                 <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener" class="btn btn-outline">Hablemos</a>
             </div>
             <p class="home-status"><span aria-hidden="true"></span>Disponible para proyectos de IA y colaboraciones</p>
-        </section>
+        </div>
 
         <div class="agent-orbit" aria-label="Representación abstracta de una red de agentes de inteligencia artificial">
             <div class="orbit-glow"></div>
@@ -75,6 +76,85 @@
                 </g>
             </svg>
         </div>
+    </section>
+
+    <section class="selected-projects" id="projects" aria-labelledby="projects-title">
+        <div class="selected-projects-inner">
+            <div class="projects-heading">
+                <div>
+                    <p class="projects-kicker">TRABAJO SELECCIONADO</p>
+                    <h2 id="projects-title">Proyectos construidos para funcionar.</h2>
+                </div>
+                <p>Sistemas de IA, evaluación y cloud presentados desde el problema, las decisiones técnicas y el resultado verificable.</p>
+            </div>
+
+            <article class="featured-work">
+                <div class="featured-work-copy">
+                    <p class="project-index">01 · PROYECTO PRINCIPAL</p>
+                    <h3>NovaKnowledge</h3>
+                    <p class="project-summary">Sistema agéntico de turismo inteligente para Ecuador con datos oficiales verificables y recuperación RAG híbrida.</p>
+                    <dl class="project-facts">
+                        <div><dt>Problema</dt><dd>Información turística fragmentada y difícil de verificar.</dd></div>
+                        <div><dt>Solución</dt><dd>Agentes coordinados sobre FAISS + BM25, routing inteligente y fuentes oficiales.</dd></div>
+                        <div><dt>Enfoque</dt><dd>Precisión factual, trazabilidad y costos controlados.</dd></div>
+                    </dl>
+                    <div class="project-tech project-tech-clean">
+                        <span>LangGraph</span><span>FAISS + BM25</span><span>FastAPI</span><span>MCP</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="arquitectura-novaknowledge.html" class="btn btn-primary">Ver caso de estudio <span aria-hidden="true">→</span></a>
+                        <a href="https://saintjimmyu-dev-novaknowledge.hf.space" target="_blank" rel="noopener" class="text-link">Demo en vivo ↗</a>
+                    </div>
+                </div>
+                <div class="featured-work-visual" aria-hidden="true">
+                    <div class="mini-architecture">
+                        <span class="mini-label">FUENTES OFICIALES</span>
+                        <div class="architecture-flow">
+                            <div class="architecture-node">Datos</div>
+                            <span>→</span>
+                            <div class="architecture-node accent">RAG híbrido</div>
+                            <span>→</span>
+                            <div class="architecture-node violet">Agentes</div>
+                            <span>→</span>
+                            <div class="architecture-node">Respuesta</div>
+                        </div>
+                        <div class="answer-preview">
+                            <span>Consulta turística</span>
+                            <strong>Información recuperada y verificada</strong>
+                            <small>Fuentes trazables · contexto geográfico</small>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="secondary-work-grid">
+                <article class="secondary-work">
+                    <p class="project-index">02 · EVALUACIÓN</p>
+                    <h3>RAG Quality Evaluator</h3>
+                    <p>Consola para medir la calidad de sistemas RAG mediante Golden Dataset, métricas automatizadas y evaluación humana.</p>
+                    <div class="secondary-work-footer">
+                        <div class="project-tech project-tech-clean"><span>Python</span><span>Gradio</span><span>RAG Eval</span></div>
+                        <div><a href="https://huggingface.co/spaces/saintjimmyu-dev/rag-quality-evaluator" target="_blank" rel="noopener" class="text-link">Ver demo ↗</a></div>
+                    </div>
+                </article>
+
+                <article class="secondary-work">
+                    <p class="project-index">03 · CLOUD</p>
+                    <h3>Prosperas</h3>
+                    <p>Plataforma fullstack con backend Python, infraestructura Terraform y un flujo de entrega continua en cloud.</p>
+                    <div class="secondary-work-footer">
+                        <div class="project-tech project-tech-clean"><span>Terraform</span><span>Python</span><span>AWS</span><span>CI/CD</span></div>
+                        <div><a href="https://github.com/saintjimmyu-dev" target="_blank" rel="noopener" class="text-link">Ver GitHub ↗</a></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
     </main>
+
+    <footer class="home-footer">
+        <p>Jimmy Uruchima · AI Engineer</p>
+        <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener">Conversemos ↗</a>
+    </footer>
 </body>
 </html>
