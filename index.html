@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260807-3">
+    <link rel="stylesheet" href="style.css?v=20260807-4">
 </head>
 <body class="home-page">
     <div class="home-ambient" aria-hidden="true"></div>
@@ -17,10 +17,11 @@
         <div class="home-nav-inner">
             <a href="index.html" class="home-brand" aria-label="Inicio — Jimmy Uruchima">Jimmy Uruchima</a>
             <div class="home-nav-links">
-                <a href="#projects">Proyectos</a>
-                <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener">Sobre mí</a>
-                <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener">Contacto</a>
+                <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+                <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="nav.about">Sobre mí</a>
+                <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="nav.contact">Contacto</a>
                 <a href="https://github.com/saintjimmyu-dev" target="_blank" rel="noopener">GitHub</a>
+                <button class="language-toggle" type="button" data-language-toggle aria-label="Cambiar idioma a inglés">EN</button>
             </div>
         </div>
     </nav>
@@ -29,16 +30,13 @@
     <section class="home-hero">
         <div class="home-hero-copy" aria-labelledby="home-title">
             <p class="home-eyebrow">AI ENGINEER · AGENTIC SYSTEMS · RAG</p>
-            <h1 id="home-title">Construyo sistemas de IA confiables sobre datos reales.</h1>
-            <p class="home-lead">
-                Diseño agentes, sistemas RAG y arquitecturas cloud con precisión,
-                trazabilidad y costos controlados.
-            </p>
+            <h1 id="home-title" data-i18n="home.title">Construyo sistemas de IA confiables sobre datos reales.</h1>
+            <p class="home-lead" data-i18n="home.lead">Diseño agentes, sistemas RAG y arquitecturas cloud con precisión, trazabilidad y costos controlados.</p>
             <div class="home-actions">
-                <a href="#projects" class="btn btn-primary">Ver proyectos <span aria-hidden="true">→</span></a>
-                <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener" class="btn btn-outline">Hablemos</a>
+                <a href="#projects" class="btn btn-primary" data-i18n="home.projectsButton">Ver proyectos →</a>
+                <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="home.talkButton">Hablemos</a>
             </div>
-            <p class="home-status"><span aria-hidden="true"></span>Disponible para proyectos de IA y colaboraciones</p>
+            <p class="home-status"><span aria-hidden="true"></span><span data-i18n="home.status">Disponible para proyectos de IA y colaboraciones</span></p>
         </div>
 
         <div class="agent-orbit" aria-label="Representación abstracta de una red de agentes de inteligencia artificial">
@@ -82,70 +80,37 @@
         <div class="selected-projects-inner">
             <div class="projects-heading">
                 <div>
-                    <p class="projects-kicker">TRABAJO SELECCIONADO</p>
-                    <h2 id="projects-title">Proyectos construidos para funcionar.</h2>
+                    <p class="projects-kicker" data-i18n="projects.kicker">TRABAJO SELECCIONADO</p>
+                    <h2 id="projects-title" data-i18n="projects.title">Proyectos construidos para funcionar.</h2>
                 </div>
-                <p>Sistemas de IA, evaluación y cloud presentados desde el problema, las decisiones técnicas y el resultado verificable.</p>
+                <p data-i18n="projects.intro">Dos productos sólidos presentados desde el problema, la solución y el valor que entregan.</p>
             </div>
 
-            <article class="featured-work">
-                <div class="featured-work-copy">
-                    <p class="project-index">01 · PROYECTO PRINCIPAL</p>
-                    <h3>NovaKnowledge</h3>
-                    <p class="project-summary">Sistema agéntico de turismo inteligente para Ecuador con datos oficiales verificables y recuperación RAG híbrida.</p>
-                    <dl class="project-facts">
-                        <div><dt>Problema</dt><dd>Información turística fragmentada y difícil de verificar.</dd></div>
-                        <div><dt>Solución</dt><dd>Agentes coordinados sobre FAISS + BM25, routing inteligente y fuentes oficiales.</dd></div>
-                        <div><dt>Enfoque</dt><dd>Precisión factual, trazabilidad y costos controlados.</dd></div>
-                    </dl>
-                    <div class="project-tech project-tech-clean">
-                        <span>LangGraph</span><span>FAISS + BM25</span><span>FastAPI</span><span>MCP</span>
+            <div class="solid-projects-grid">
+                <article class="solid-project-card tourist-card">
+                    <div>
+                        <p class="project-index" data-i18n="tourist.index">01 · SISTEMA AGÉNTICO</p>
+                        <h3>Turístico</h3>
+                        <p class="project-summary" data-i18n="tourist.summary">Asistente inteligente para consultar información turística de Ecuador utilizando datos oficiales verificables.</p>
                     </div>
-                    <div class="project-actions">
-                        <a href="arquitectura-novaknowledge.html" class="btn btn-primary">Ver caso de estudio <span aria-hidden="true">→</span></a>
-                        <a href="https://saintjimmyu-dev-novaknowledge.hf.space" target="_blank" rel="noopener" class="text-link">Demo en vivo ↗</a>
+                    <div class="project-visual project-visual-tourist" aria-hidden="true">
+                        <span data-i18n="tourist.visual1">Fuentes</span><i></i><strong>RAG</strong><i></i><span data-i18n="tourist.visual2">Agentes</span>
                     </div>
-                </div>
-                <div class="featured-work-visual" aria-hidden="true">
-                    <div class="mini-architecture">
-                        <span class="mini-label">FUENTES OFICIALES</span>
-                        <div class="architecture-flow">
-                            <div class="architecture-node">Datos</div>
-                            <span>→</span>
-                            <div class="architecture-node accent">RAG híbrido</div>
-                            <span>→</span>
-                            <div class="architecture-node violet">Agentes</div>
-                            <span>→</span>
-                            <div class="architecture-node">Respuesta</div>
-                        </div>
-                        <div class="answer-preview">
-                            <span>Consulta turística</span>
-                            <strong>Información recuperada y verificada</strong>
-                            <small>Fuentes trazables · contexto geográfico</small>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <div class="secondary-work-grid">
-                <article class="secondary-work">
-                    <p class="project-index">02 · EVALUACIÓN</p>
-                    <h3>RAG Quality Evaluator</h3>
-                    <p>Consola para medir la calidad de sistemas RAG mediante Golden Dataset, métricas automatizadas y evaluación humana.</p>
-                    <div class="secondary-work-footer">
-                        <div class="project-tech project-tech-clean"><span>Python</span><span>Gradio</span><span>RAG Eval</span></div>
-                        <div><a href="https://huggingface.co/spaces/saintjimmyu-dev/rag-quality-evaluator" target="_blank" rel="noopener" class="text-link">Ver demo ↗</a></div>
-                    </div>
+                    <div class="project-tech project-tech-clean"><span>LangGraph</span><span data-i18n="tourist.hybridTag">RAG híbrido</span><span>FastAPI</span><span>MCP</span></div>
+                    <a href="proyecto-turistico.html" class="btn btn-primary project-page-button" data-i18n="projects.viewProject">Ver proyecto →</a>
                 </article>
 
-                <article class="secondary-work">
-                    <p class="project-index">03 · CLOUD</p>
-                    <h3>Prosperas</h3>
-                    <p>Plataforma fullstack con backend Python, infraestructura Terraform y un flujo de entrega continua en cloud.</p>
-                    <div class="secondary-work-footer">
-                        <div class="project-tech project-tech-clean"><span>Terraform</span><span>Python</span><span>AWS</span><span>CI/CD</span></div>
-                        <div><a href="https://github.com/saintjimmyu-dev" target="_blank" rel="noopener" class="text-link">Ver GitHub ↗</a></div>
+                <article class="solid-project-card artefactito-card">
+                    <div>
+                        <p class="project-index" data-i18n="artefactito.index">02 · COMERCIO CONVERSACIONAL</p>
+                        <h3>Artefactito</h3>
+                        <p class="project-summary" data-i18n="artefactito.summary">Asistente web de comercio conversacional que transforma una conversación en una cotización PDF verificable.</p>
                     </div>
+                    <div class="project-visual project-visual-quote" aria-hidden="true">
+                        <span data-i18n="artefactito.flow1">Conversación</span><i></i><strong data-i18n="artefactito.quote">Cotización</strong><i></i><span>PDF</span>
+                    </div>
+                    <div class="project-tech project-tech-clean"><span data-i18n="artefactito.tag1">Asistente web</span><span data-i18n="artefactito.verifiableTag">Flujo verificable</span><span>PDF</span></div>
+                    <a href="proyecto-artefactito.html" class="btn btn-primary project-page-button" data-i18n="projects.viewProject">Ver proyecto →</a>
                 </article>
             </div>
         </div>
@@ -154,7 +119,8 @@
 
     <footer class="home-footer">
         <p>Jimmy Uruchima · AI Engineer</p>
-        <a href="https://www.linkedin.com/in/saintjimmyu" target="_blank" rel="noopener">Conversemos ↗</a>
+        <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="footer.talk">Conversemos ↗</a>
     </footer>
+    <script src="script.js?v=20260807-4"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turístico — Jimmy Uruchima</title>
+    <meta name="description" content="Caso de estudio de Turístico, sistema agéntico para consultas sobre Ecuador con datos oficiales verificables.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260807-4">
+</head>
+<body class="home-page case-page">
+    <div class="home-ambient" aria-hidden="true"></div>
+    <nav class="home-nav" aria-label="Navegación principal">
+        <div class="home-nav-inner">
+            <a href="index.html" class="home-brand">Jimmy Uruchima</a>
+            <div class="home-nav-links">
+                <a href="index.html#projects" data-i18n="nav.projects">Proyectos</a>
+                <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="nav.contact">Contacto</a>
+                <button class="language-toggle" type="button" data-language-toggle aria-label="Cambiar idioma a inglés">EN</button>
+            </div>
+        </div>
+    </nav>
+    <main class="case-main">
+        <header class="case-hero">
+            <a href="index.html#projects" class="case-back" data-i18n="case.back">← Volver a proyectos</a>
+            <p class="projects-kicker" data-i18n="tourist.index">01 · SISTEMA AGÉNTICO</p>
+            <h1>Turístico</h1>
+            <p class="case-lead" data-i18n="tourist.caseLead">Un sistema de IA agéntica que responde consultas turísticas sobre Ecuador utilizando información oficial recuperada y verificable.</p>
+            <div class="project-tech project-tech-clean"><span>LangGraph</span><span>FAISS + BM25</span><span>FastAPI</span><span>MCP</span></div>
+        </header>
+        <section class="case-grid">
+            <article><span>01</span><h2 data-i18n="case.problem">El problema</h2><p data-i18n="tourist.problem">La información turística está distribuida entre múltiples fuentes y puede ser difícil comprobar su actualidad o procedencia.</p></article>
+            <article><span>02</span><h2 data-i18n="case.solution">La solución</h2><p data-i18n="tourist.solution">Una arquitectura de agentes coordinados con recuperación híbrida, contexto geográfico y respuestas respaldadas por fuentes oficiales.</p></article>
+            <article><span>03</span><h2 data-i18n="case.value">El valor</h2><p data-i18n="tourist.value">Consultas más claras, información trazable y una experiencia preparada para controlar precisión y costos.</p></article>
+        </section>
+        <section class="case-flow">
+            <p class="projects-kicker" data-i18n="case.flow">FLUJO DEL SISTEMA</p>
+            <div><span data-i18n="tourist.flow1">Fuentes oficiales</span><i>→</i><span data-i18n="tourist.flow2">Recuperación híbrida</span><i>→</i><span data-i18n="tourist.flow3">Orquestación de agentes</span><i>→</i><span data-i18n="tourist.flow4">Respuesta trazable</span></div>
+        </section>
+        <div class="case-actions">
+            <a href="https://saintjimmyu-dev-novaknowledge.hf.space" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="tourist.demo">Abrir demo ↗</a>
+            <a href="index.html#projects" class="btn btn-outline" data-i18n="case.other">Ver los dos proyectos</a>
+        </div>
+    </main>
+    <script src="script.js?v=20260807-4"></script>
+</body>
+</html>
