@@ -23,7 +23,7 @@ const translations = {
         'artefactito.solution': 'Un flujo conversacional web que organiza la solicitud y genera un documento PDF verificable como resultado.',
         'artefactito.value': 'Una experiencia continua desde la intención del cliente hasta un artefacto comercial concreto y revisable.',
         'artefactito.flow1': 'Conversación', 'artefactito.flow2': 'Datos de la solicitud', 'artefactito.flow3': 'Validación', 'artefactito.flow4': 'Cotización PDF',
-        'artefactito.tag1': 'Asistente web', 'artefactito.tag2': 'Comercio conversacional', 'artefactito.tag3': 'Cotización PDF', 'artefactito.quote': 'Cotización', 'artefactito.verifiableTag': 'Flujo verificable',
+        'artefactito.tag1': 'Asistente web', 'artefactito.tag2': 'Comercio conversacional', 'artefactito.tag3': 'Cotización PDF', 'artefactito.quote': 'Cotización', 'artefactito.verifiableTag': 'Flujo verificable', 'artefactito.demo': 'Abrir demo ↗',
         'case.back': '← Volver a proyectos', 'case.problem': 'El problema', 'case.solution': 'La solución', 'case.value': 'El valor',
         'case.flow': 'FLUJO DEL SISTEMA', 'case.other': 'Ver los dos proyectos', 'footer.talk': 'Conversemos ↗'
     },
@@ -51,7 +51,7 @@ const translations = {
         'artefactito.solution': 'A conversational web flow that organizes the request and generates a verifiable PDF document as its outcome.',
         'artefactito.value': 'A continuous experience from customer intent to a concrete, reviewable commercial artifact.',
         'artefactito.flow1': 'Conversation', 'artefactito.flow2': 'Request data', 'artefactito.flow3': 'Validation', 'artefactito.flow4': 'PDF quotation',
-        'artefactito.tag1': 'Web assistant', 'artefactito.tag2': 'Conversational commerce', 'artefactito.tag3': 'PDF quotation', 'artefactito.quote': 'Quotation', 'artefactito.verifiableTag': 'Verifiable flow',
+        'artefactito.tag1': 'Web assistant', 'artefactito.tag2': 'Conversational commerce', 'artefactito.tag3': 'PDF quotation', 'artefactito.quote': 'Quotation', 'artefactito.verifiableTag': 'Verifiable flow', 'artefactito.demo': 'Open demo ↗',
         'case.back': '← Back to projects', 'case.problem': 'The problem', 'case.solution': 'The solution', 'case.value': 'The value',
         'case.flow': 'SYSTEM FLOW', 'case.other': 'View both projects', 'footer.talk': 'Let’s connect ↗'
     }
