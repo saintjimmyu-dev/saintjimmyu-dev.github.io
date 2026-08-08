@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turístico — Jimmy Uruchima</title>
-    <meta name="description" content="Caso de estudio de Turístico, sistema agéntico para consultas sobre Ecuador con datos oficiales verificables.">
+    <meta name="description" content="Turístico convierte fuentes oficiales dispersas sobre Ecuador en respuestas claras, trazables y útiles para tomar decisiones de viaje.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260807-6">
+    <link rel="stylesheet" href="style.css?v=20260807-7">
 </head>
 <body class="home-page case-page">
     <div class="home-ambient" aria-hidden="true"></div>
@@ -25,25 +25,53 @@
     <main class="case-main">
         <header class="case-hero">
             <a href="index.html#projects" class="case-back" data-i18n="case.back">← Volver a proyectos</a>
-            <p class="projects-kicker" data-i18n="tourist.index">01 · SISTEMA AGÉNTICO</p>
+            <p class="projects-kicker" data-i18n="tourist.heroKicker">IA AGÉNTICA PARA TURISMO EN ECUADOR</p>
             <h1>Turístico</h1>
-            <p class="case-lead" data-i18n="tourist.caseLead">Convierte información turística dispersa en respuestas claras y trazables. La arquitectura combina recuperación híbrida, contexto geográfico y agentes coordinados para sustentar cada respuesta en fuentes oficiales.</p>
+            <p class="case-lead" data-i18n="tourist.caseLead">Información oficial para tu viaje, en una sola conversación. Turístico transforma fuentes dispersas sobre alojamiento, guías, requisitos, tarifas y destinos en respuestas claras y trazables.</p>
             <div class="project-tech project-tech-clean"><span>LangGraph</span><span>FAISS + BM25</span><span>FastAPI</span><span>MCP</span></div>
         </header>
+
+        <section class="case-story">
+            <div>
+                <p class="projects-kicker" data-i18n="tourist.storyKicker">EL RETO DEL VIAJERO</p>
+                <h2 data-i18n="tourist.storyTitle">La información existe. El reto es encontrarla.</h2>
+            </div>
+            <p data-i18n="tourist.storyBody">Planificar un viaje por Ecuador todavía implica buscar en distintas ventanillas digitales: establecimientos autorizados en un portal, guías con licencia vigente en otro, y requisitos de ingreso, tarifas de Galápagos, feriados o consulados en sitios diferentes. Turístico convierte ese recorrido fragmentado en una conversación natural.</p>
+        </section>
+
+        <section class="case-examples">
+            <div class="case-section-heading">
+                <p class="projects-kicker" data-i18n="tourist.examplesKicker">PREGUNTAS REALES</p>
+                <h2 data-i18n="tourist.examplesTitle">Pregunta como hablarías con una persona.</h2>
+            </div>
+            <div class="example-questions">
+                <p data-i18n="tourist.question1">¿Qué hospedajes autorizados hay en Cuenca?</p>
+                <p data-i18n="tourist.question2">¿Qué guías turísticos de Tena tienen licencia vigente y hasta cuándo?</p>
+                <p data-i18n="tourist.question3">Soy canadiense, ¿qué requisitos necesito para ingresar a Ecuador?</p>
+                <p data-i18n="tourist.question4">¿Cuánto cuesta ingresar a Galápagos según mi categoría?</p>
+                <p data-i18n="tourist.question5">¿Qué puedo hacer y ver en Cuenca?</p>
+            </div>
+        </section>
+
         <section class="case-grid">
-            <article><span>01</span><h2 data-i18n="case.problem">El problema</h2><p data-i18n="tourist.problem">Planificar un viaje puede exigir contrastar información distribuida entre portales y documentos oficiales; encontrar una respuesta útil y comprobar su origen toma tiempo.</p></article>
-            <article><span>02</span><h2 data-i18n="case.solution">La solución</h2><p data-i18n="tourist.solution">El sistema localiza evidencia con recuperación híbrida, incorpora contexto geográfico y coordina agentes para generar respuestas respaldadas por las fuentes consultadas.</p></article>
-            <article><span>03</span><h2 data-i18n="case.value">El valor</h2><p data-i18n="tourist.value">Reúne información relevante en una respuesta clara y permite revisar su procedencia antes de tomar decisiones de viaje.</p></article>
+            <article><span>01</span><h2 data-i18n="tourist.trustTitle">Respuestas con respaldo</h2><p data-i18n="tourist.trustBody">Cada respuesta cita la fuente oficial que la sustenta. Si el dato no aparece en una fuente del Estado, el sistema lo comunica claramente en lugar de inventarlo.</p></article>
+            <article><span>02</span><h2 data-i18n="tourist.techTitle">IA agéntica verificable</h2><p data-i18n="tourist.techBody">El sistema interpreta la intención, decide qué fuente oficial consultar y verifica la respuesta antes de presentarla.</p></article>
+            <article><span>03</span><h2 data-i18n="tourist.scaleTitle">Diseñado para escalar</h2><p data-i18n="tourist.scaleBody">Actualmente funciona con recursos de IA gratuitos. Una infraestructura premium permitiría ampliar capacidad, velocidad y cobertura.</p></article>
         </section>
         <section class="case-flow">
             <p class="projects-kicker" data-i18n="case.flow">FLUJO DEL SISTEMA</p>
             <div><span data-i18n="tourist.flow1">Fuentes oficiales</span><i>→</i><span data-i18n="tourist.flow2">Recuperación híbrida</span><i>→</i><span data-i18n="tourist.flow3">Orquestación de agentes</span><i>→</i><span data-i18n="tourist.flow4">Respuesta trazable</span></div>
         </section>
-        <div class="case-actions">
-            <a href="https://saintjimmyu-dev-novaknowledge.hf.space" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="tourist.demo">Abrir demo ↗</a>
-            <a href="index.html#projects" class="btn btn-outline" data-i18n="case.other">Ver los dos proyectos</a>
-        </div>
+        <section class="case-cta">
+            <p class="projects-kicker" data-i18n="tourist.ctaKicker">TURÍSTICO EN ACCIÓN</p>
+            <h2 data-i18n="tourist.ctaTitle">Planifica con información que puedes verificar.</h2>
+            <p data-i18n="tourist.ctaBody">Haz tu consulta en lenguaje natural y revisa las fuentes que respaldan cada respuesta.</p>
+            <div class="case-actions">
+                <a href="https://saintjimmyu-dev-novaknowledge.hf.space" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="tourist.demo">Abrir Turístico ↗</a>
+                <a href="index.html#projects" class="btn btn-outline" data-i18n="case.other">Ver los dos proyectos</a>
+            </div>
+        </section>
     </main>
-    <script src="script.js?v=20260807-6"></script>
+    <script src="script.js?v=20260807-7"></script>
 </body>
 </html>

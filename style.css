@@ -1246,6 +1246,69 @@ body {
 .case-hero h1 { margin: 12px 0 26px; font-size: clamp(4rem, 10vw, 8rem); line-height: 0.95; letter-spacing: -0.07em; }
 .case-lead { max-width: 820px; margin-bottom: 30px; color: #b1bbc8; font-size: clamp(1.22rem, 2vw, 1.62rem); line-height: 1.65; }
 
+.case-story {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1.18fr);
+    gap: clamp(44px, 8vw, 110px);
+    align-items: start;
+    padding: clamp(38px, 6vw, 70px);
+    margin-bottom: 28px;
+    border: 1px solid rgba(127, 158, 198, 0.18);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(90, 84, 205, 0.1), transparent 34%),
+        rgba(10, 22, 37, 0.62);
+}
+
+.case-story h2,
+.case-section-heading h2,
+.case-cta h2 {
+    margin-top: 14px;
+    color: #f1f1ed;
+    font-size: clamp(2.15rem, 4vw, 3.8rem);
+    line-height: 1.06;
+    letter-spacing: -0.05em;
+}
+
+.case-story > p {
+    color: #aeb8c5;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.case-examples {
+    padding: clamp(38px, 6vw, 66px);
+    margin-bottom: 28px;
+    border: 1px solid rgba(127, 158, 198, 0.16);
+    border-radius: 20px;
+    background: rgba(5, 14, 25, 0.5);
+}
+
+.case-section-heading {
+    max-width: 720px;
+    margin-bottom: 36px;
+}
+
+.example-questions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.example-questions p {
+    min-height: 82px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(98, 221, 255, 0.13);
+    border-radius: 12px;
+    color: #c8d2db;
+    background: rgba(66, 111, 148, 0.06);
+    line-height: 1.55;
+}
+
+.example-questions p:last-child { grid-column: 1 / -1; }
+
 .case-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1276,6 +1339,25 @@ body {
 .case-flow span { flex: 1; padding: 17px 14px; border: 1px solid rgba(98, 221, 255, 0.24); border-radius: 9px; color: #dce5ec; text-align: center; font-size: 0.82rem; }
 .case-flow i { color: #657589; font-style: normal; }
 .case-actions { display: flex; gap: 16px; margin-top: 40px; }
+
+.case-cta {
+    padding: clamp(40px, 6vw, 68px);
+    margin-top: 28px;
+    border: 1px solid rgba(98, 221, 255, 0.2);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 100% 20%, rgba(98, 221, 255, 0.11), transparent 34%),
+        radial-gradient(circle at 0% 100%, rgba(153, 105, 239, 0.1), transparent 38%),
+        rgba(10, 22, 37, 0.62);
+}
+
+.case-cta > p:not(.projects-kicker) {
+    max-width: 720px;
+    margin-top: 18px;
+    color: #aab5c1;
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
 
 .access-dialog {
     position: fixed;
@@ -1359,6 +1441,7 @@ body {
     .featured-work { gap: 42px; }
     .secondary-work-grid { grid-template-columns: 1fr; }
     .solid-projects-grid,
+    .case-story,
     .case-grid { grid-template-columns: 1fr; }
     .solid-project-card .project-summary { min-height: auto; }
 }
@@ -1383,6 +1466,11 @@ body {
     .project-visual strong { padding: 9px 7px; font-size: 0.64rem; }
     .project-visual i { width: auto; }
     .case-main { width: min(100% - 32px, 1180px); padding-top: 58px; }
+    .case-story,
+    .case-examples,
+    .case-cta { padding: 30px 22px; border-radius: 16px; }
+    .example-questions { grid-template-columns: 1fr; }
+    .example-questions p:last-child { grid-column: auto; }
     .case-grid article { min-height: 240px; }
     .case-flow > div { align-items: stretch; flex-direction: column; }
     .case-flow i {
