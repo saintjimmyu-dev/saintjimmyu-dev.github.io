@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260807-4">
+    <link rel="stylesheet" href="style.css?v=20260807-6">
 </head>
 <body class="home-page">
     <div class="home-ambient" aria-hidden="true"></div>
@@ -19,7 +19,7 @@
             <div class="home-nav-links">
                 <a href="#projects" data-i18n="nav.projects">Proyectos</a>
                 <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="nav.about">Sobre mí</a>
-                <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="nav.contact">Contacto</a>
+                <a href="mailto:jimmy.uruchima@gmail.com" class="nav-email">jimmy.uruchima@gmail.com</a>
                 <a href="https://github.com/saintjimmyu-dev" target="_blank" rel="noopener">GitHub</a>
                 <button class="language-toggle" type="button" data-language-toggle aria-label="Cambiar idioma a inglés">EN</button>
             </div>
@@ -36,7 +36,7 @@
                 <a href="#projects" class="btn btn-primary" data-i18n="home.projectsButton">Ver proyectos →</a>
                 <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="home.talkButton">Hablemos</a>
             </div>
-            <p class="home-status"><span aria-hidden="true"></span><span data-i18n="home.status">Disponible para proyectos de IA y colaboraciones</span></p>
+            <p class="home-status"><span class="status-dot" aria-hidden="true"></span><span class="status-copy" data-i18n="home.status">Disponible para proyectos de IA y colaboraciones</span></p>
         </div>
 
         <div class="agent-orbit" aria-label="Representación abstracta de una red de agentes de inteligencia artificial">
@@ -83,7 +83,7 @@
                     <p class="projects-kicker" data-i18n="projects.kicker">TRABAJO SELECCIONADO</p>
                     <h2 id="projects-title" data-i18n="projects.title">Proyectos construidos para funcionar.</h2>
                 </div>
-                <p data-i18n="projects.intro">Dos productos sólidos presentados desde el problema, la solución y el valor que entregan.</p>
+                <p data-i18n="projects.intro">Dos productos de IA que convierten información y conversaciones en resultados claros, revisables y listos para usar.</p>
             </div>
 
             <div class="solid-projects-grid">
@@ -91,9 +91,9 @@
                     <div>
                         <p class="project-index" data-i18n="tourist.index">01 · SISTEMA AGÉNTICO</p>
                         <h3>Turístico</h3>
-                        <p class="project-summary" data-i18n="tourist.summary">Asistente inteligente para consultar información turística de Ecuador utilizando datos oficiales verificables.</p>
+                        <p class="project-summary" data-i18n="tourist.summary">Asistente de IA para consultas turísticas sobre Ecuador que usa RAG híbrido y agentes coordinados para fundamentar respuestas en fuentes oficiales.</p>
                     </div>
-                    <div class="project-visual project-visual-tourist" aria-hidden="true">
+                    <div class="project-visual project-visual-tourist pulse-flow" aria-hidden="true">
                         <span data-i18n="tourist.visual1">Fuentes</span><i></i><strong>RAG</strong><i></i><span data-i18n="tourist.visual2">Agentes</span>
                     </div>
                     <div class="project-tech project-tech-clean"><span>LangGraph</span><span data-i18n="tourist.hybridTag">RAG híbrido</span><span>FastAPI</span><span>MCP</span></div>
@@ -104,9 +104,9 @@
                     <div>
                         <p class="project-index" data-i18n="artefactito.index">02 · COMERCIO CONVERSACIONAL</p>
                         <h3>Artefactito</h3>
-                        <p class="project-summary" data-i18n="artefactito.summary">Asistente web de comercio conversacional que transforma una conversación en una cotización PDF verificable.</p>
+                        <p class="project-summary" data-i18n="artefactito.summary">Asistente web que convierte una conversación comercial en datos estructurados y una cotización PDF revisable, con validaciones integradas en el flujo.</p>
                     </div>
-                    <div class="project-visual project-visual-quote" aria-hidden="true">
+                    <div class="project-visual project-visual-quote pulse-flow" aria-hidden="true">
                         <span data-i18n="artefactito.flow1">Conversación</span><i></i><strong data-i18n="artefactito.quote">Cotización</strong><i></i><span>PDF</span>
                     </div>
                     <div class="project-tech project-tech-clean"><span data-i18n="artefactito.tag1">Asistente web</span><span data-i18n="artefactito.verifiableTag">Flujo verificable</span><span>PDF</span></div>
@@ -121,6 +121,6 @@
         <p>Jimmy Uruchima · AI Engineer</p>
         <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="footer.talk">Conversemos ↗</a>
     </footer>
-    <script src="script.js?v=20260807-5"></script>
+    <script src="script.js?v=20260807-6"></script>
 </body>
 </html>

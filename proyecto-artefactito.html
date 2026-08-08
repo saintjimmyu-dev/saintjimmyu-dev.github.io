@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260807-4">
+    <link rel="stylesheet" href="style.css?v=20260807-6">
 </head>
 <body class="home-page case-page">
     <div class="home-ambient" aria-hidden="true"></div>
@@ -17,7 +17,7 @@
             <a href="index.html" class="home-brand">Jimmy Uruchima</a>
             <div class="home-nav-links">
                 <a href="index.html#projects" data-i18n="nav.projects">Proyectos</a>
-                <a href="https://www.linkedin.com/in/jimmyuruchima/" target="_blank" rel="noopener" data-i18n="nav.contact">Contacto</a>
+                <a href="mailto:jimmy.uruchima@gmail.com" class="nav-email">jimmy.uruchima@gmail.com</a>
                 <button class="language-toggle" type="button" data-language-toggle aria-label="Cambiar idioma a inglés">EN</button>
             </div>
         </div>
@@ -27,23 +27,35 @@
             <a href="index.html#projects" class="case-back" data-i18n="case.back">← Volver a proyectos</a>
             <p class="projects-kicker" data-i18n="artefactito.index">02 · COMERCIO CONVERSACIONAL</p>
             <h1>Artefactito</h1>
-            <p class="case-lead" data-i18n="artefactito.caseLead">Un asistente web que guía una conversación comercial y la convierte en una cotización PDF verificable.</p>
+            <p class="case-lead" data-i18n="artefactito.caseLead">Conecta una necesidad de compra con una propuesta comercial concreta. El flujo conversacional captura y valida la información necesaria antes de generar la cotización.</p>
             <div class="project-tech project-tech-clean"><span data-i18n="artefactito.tag1">Asistente web</span><span data-i18n="artefactito.tag2">Comercio conversacional</span><span data-i18n="artefactito.tag3">Cotización PDF</span></div>
         </header>
         <section class="case-grid">
-            <article><span>01</span><h2 data-i18n="case.problem">El problema</h2><p data-i18n="artefactito.problem">Convertir una conversación comercial en una cotización consistente suele requerir pasos manuales y validaciones separadas.</p></article>
-            <article><span>02</span><h2 data-i18n="case.solution">La solución</h2><p data-i18n="artefactito.solution">Un flujo conversacional web que organiza la solicitud y genera un documento PDF verificable como resultado.</p></article>
-            <article><span>03</span><h2 data-i18n="case.value">El valor</h2><p data-i18n="artefactito.value">Una experiencia continua desde la intención del cliente hasta un artefacto comercial concreto y revisable.</p></article>
+            <article><span>01</span><h2 data-i18n="case.problem">El problema</h2><p data-i18n="artefactito.problem">Pasar de una conversación a una cotización exige interpretar la solicitud, completar datos y trasladarlos entre pasos manuales, lo que puede generar demoras o inconsistencias.</p></article>
+            <article><span>02</span><h2 data-i18n="case.solution">La solución</h2><p data-i18n="artefactito.solution">El asistente guía la conversación, estructura la solicitud, valida los campos necesarios y genera una cotización PDF como salida del proceso.</p></article>
+            <article><span>03</span><h2 data-i18n="case.value">El valor</h2><p data-i18n="artefactito.value">Mantiene el contexto comercial de principio a fin y entrega un documento organizado que puede revisarse antes de compartirlo.</p></article>
         </section>
         <section class="case-flow">
             <p class="projects-kicker" data-i18n="case.flow">FLUJO DEL SISTEMA</p>
             <div><span data-i18n="artefactito.flow1">Conversación</span><i>→</i><span data-i18n="artefactito.flow2">Datos de la solicitud</span><i>→</i><span data-i18n="artefactito.flow3">Validación</span><i>→</i><span data-i18n="artefactito.flow4">Cotización PDF</span></div>
         </section>
         <div class="case-actions">
-            <a href="https://saintjimmyu-dev-artefactito-probe.hf.space/" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="artefactito.demo">Abrir demo ↗</a>
+            <a href="https://saintjimmyu-dev-artefactito-probe.hf.space/" target="_blank" rel="noopener" class="btn btn-primary" data-demo-gate data-i18n="artefactito.demo">Abrir demo ↗</a>
             <a href="index.html#projects" class="btn btn-outline" data-i18n="case.other">Ver los dos proyectos</a>
         </div>
     </main>
-    <script src="script.js?v=20260807-5"></script>
+
+    <dialog class="access-dialog" data-access-dialog aria-labelledby="access-dialog-title">
+        <button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar">×</button>
+        <p class="projects-kicker" data-i18n="artefactito.accessKicker">DEMO CON ACCESO CONTROLADO</p>
+        <h2 id="access-dialog-title" data-i18n="artefactito.accessTitle">Demo con acceso controlado</h2>
+        <p data-i18n="artefactito.accessBody">Artefactito se presenta en un entorno privado para mantener estable la demostración y proteger sus datos de prueba. Solicita acceso por correo; si ya tienes autorización, puedes continuar.</p>
+        <a class="dialog-email" href="mailto:jimmy.uruchima@gmail.com?subject=Solicitud%20de%20acceso%20a%20la%20demo%20de%20Artefactito">jimmy.uruchima@gmail.com</a>
+        <div class="dialog-actions">
+            <a href="mailto:jimmy.uruchima@gmail.com?subject=Solicitud%20de%20acceso%20a%20la%20demo%20de%20Artefactito" class="btn btn-primary" data-i18n="artefactito.requestAccess">Solicitar acceso por correo</a>
+            <a href="https://saintjimmyu-dev-artefactito-probe.hf.space/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="artefactito.continueDemo">Ya tengo acceso · Abrir demo ↗</a>
+        </div>
+    </dialog>
+    <script src="script.js?v=20260807-6"></script>
 </body>
 </html>
